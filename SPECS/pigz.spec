@@ -1,15 +1,10 @@
 Name:           pigz
-Version:        2.5
-Release:        4%{?dist}
+Version:        2.8
+Release:        1%{?dist}
 Summary:        Parallel implementation of gzip
 License:        zlib
 URL:            https://www.zlib.net/pigz/
 Source0:        https://www.zlib.net/%{name}/%{name}-%{version}.tar.gz
-
-# [PATCH0] Portability improvements
-Patch0:         c9de6c53dcf3eb1071c7999c8accc43ef2b3f458.patch
-# [PATCH1] Fix usage of x2nmodp() when compiling for no threads
-Patch1:         f310c0868634a1dbacdcdcb2dbce9501a8a87868.patch
 
 BuildRequires:  gcc
 BuildRequires:  make
@@ -43,6 +38,10 @@ make tests CFLAGS="$RPM_OPT_FLAGS"
 %{_datadir}/man/man1/pigz.*
 
 %changelog
+* Fri Dec 06 2024 Tony Camuso <tcamuso@redhat.com> - 2.8-1
+- Update to upstream v2.8
+- Resolves: RHEL-70287
+
 * Wed Oct 06 2021 Prarit Bhargava <prarit@redhat.com> - 2.5-4
 - Fix annocheck erros [1956998]
 
