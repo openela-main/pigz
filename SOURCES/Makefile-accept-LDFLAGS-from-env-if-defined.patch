@@ -1,0 +1,25 @@
+From 32f59866bffcbfcfc44c22c613c0019a2e5d32f2 Mon Sep 17 00:00:00 2001
+From: Tony Camuso <tcamuso@redhat.com>
+Date: Mon, 22 Jul 2024 11:54:28 -0400
+Subject: [PATCH v0] Makefile: accept LDFLAGS from env if defined
+
+Signed-off-by: Tony Camuso <tcamuso@redhat.com>
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index b1866cf..b2b279c 100644
+--- a/Makefile
++++ b/Makefile
+@@ -1,6 +1,6 @@
+ CC=gcc
+ CFLAGS=-O3 -Wall -Wextra -Wno-unknown-pragmas -Wcast-qual
+-LDFLAGS=
++LDFLAGS ?=
+ # CFLAGS=-O3 -Wall -Wextra -Wno-unknown-pragmas -Wcast-qual -g -fsanitize=thread
+ # LDFLAGS=-g -fsanitize=thread
+ # CFLAGS=-O3 -Wall -Wextra -Wno-unknown-pragmas -Wcast-qual -g -fsanitize=address
+-- 
+2.45.2
+
